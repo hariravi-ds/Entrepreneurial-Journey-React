@@ -1,0 +1,22 @@
+:root {
+    /* Primary Colors */
+    --primary-purple: #9D38DF;
+    --primary-pink: #F26479;
+  
+    /* Secondary Color */
+    --secondary-purple: #4E3286;
+  
+    /* Background and Card Fill */
+    --page-background: #12052F;
+    --card-fill: #584877;
+  
+    /* Text Colors */
+    --text-primary: #FFFFFF;
+    --text-secondary: #CACACA;
+  }
+  
+  /* Apply the page background to the body */
+  body {
+    background-color: var(--page-background);
+    color: var(--text-primary);
+  }
