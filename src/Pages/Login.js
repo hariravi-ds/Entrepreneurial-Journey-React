@@ -1,70 +1,142 @@
-import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import SocialLogin from '../components/SocialLogin';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import SocialLogin from '../Components/SocialLogin';
+import Footer from '../Components/Footer';
 
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [rememberMe, setRememberMe] = useState(false);
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if (username && password) {
-      alert('Login successful!');
-      navigate('/signup'); // Navigate to signup for now; update later
+    // Mock authentication
+    if (username === 'user' && password === 'password') {
+      // Simulate successful login
+      localStorage.setItem('isLoggedIn', 'true'); // Store login state
+      navigate('/dashboard/overview'); // Redirect to Dashboard
     } else {
-      alert('Please fill in all fields.');
+      setError('Invalid username or password');
     }
   };
 
   return (
-    <div className="flex h-screen bg-page-bg">
-      <div className="w-1/2 flex items-center justify-center">
-        <h1 className="text-5xl font-bold text-primary-text">Entrepreneur Journey</h1>
-      </div>
-      <div className="w-1/2 flex flex-col items-center justify-center">
-        <h2 className="text-3xl mb-4 font-bold text-primary-text">Login</h2>
-        <div className="flex flex-col space-y-4 w-64 bg-card-fill p-6 rounded-lg">
-          <input
-            type="text"
-            placeholder="Username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            className="p-2 rounded border border-gray-600 bg-gray-800 text-primary-text placeholder-secondary-text"
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="p-2 rounded border border-gray-600 bg-gray-800 text-primary-text placeholder-secondary-text"
-          />
-          <label className="flex items-center space-x-2 text-secondary-text">
+    <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: 'var(--page-background)' }}>
+      <div className="p-6 rounded-lg shadow-lg w-full max-w-sm" style={{ backgroundColor: 'var(--card-fill)' }}>
+        {/* Title */}
+        <h3 className="text-center mb-6" style={{ color: 'var(--text-primary)' }}>
+          Login
+        </h3>
+
+        {/* Form */}
+        <form onSubmit={handleSubmit}>
+          {/* Username Field */}
+          <div className="mb-4">
+            <label className="block mb-2" style={{ color: 'var(--text-secondary)' }}>
+              Username
+            </label>
+            <input
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              className="w-full p-2 rounded border"
+              style={{
+                borderColor: 'var(--text-secondary)',
+                backgroundColor: 'var(--page-background)',
+                color: 'var(--text-primary)',
+              }}
+            />
+          </div>
+
+          {/* Password Field */}
+          <div className="mb-4">
+            <label className="block mb-2" style={{ color: 'var(--text-secondary)' }}>
+              Password
+            </label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full p-2 rounded border"
+              style={{
+                borderColor: 'var(--text-secondary)',
+                backgroundColor: 'var(--page-background)',
+                color: 'var(--text-primary)',
+              }}
+            />
+          </div>
+
+          {/* Error Message */}
+          {error && (
+            <p className="text-center mb-4" style={{ color: 'var(--primary-pink)' }}>
+              {error}
+            </p>
+          )}
+
+          {/* Remember Me Checkbox */}
+          <div className="mb-4 flex items-center">
             <input
               type="checkbox"
-              checked={rememberMe}
-              onChange={(e) => setRememberMe(e.target.checked)}
+              id="remember-me"
+              className="mr-2"
+              style={{ accentColor: 'var(--primary-purple)' }}
             />
-            <span>Remember me</span>
-          </label>
+            <label htmlFor="remember-me" style={{ color: 'var(--text-secondary)' }}>
+              Remember me
+            </label>
+          </div>
+
+          {/* Login Button */}
           <button
-            onClick={handleLogin}
-            className="p-2 bg-gradient-to-r from-primary-1 to-primary-2 rounded text-primary-text"
+            type="submit"
+            className="w-full p-2 rounded"
+            style={{
+              background: 'linear-gradient(to right, #9D38DF, #F26479)',
+              color: 'var(--text-primary)',
+            }}
           >
             Login
           </button>
+        </form>
+
+        {/* Forgot Password Link */}
+        <div className="text-center mt-4">
+          <Link
+            to="/forgot-password"
+            className="underline"
+            style={{ color: 'var(--text-secondary)' }}
+          >
+            Forgot password?
+          </Link>
         </div>
-        <Link to="/forgot-password" className="my-2 text-secondary-text hover:text-primary-1">
-          Forgot password?
-        </Link>
+
+        {/* Divider */}
+        <div className="flex items-center my-4">
+          <div className="flex-grow border-t" style={{ borderColor: 'var(--text-secondary)' }}></div>
+          <span className="mx-2" style={{ color: 'var(--text-secondary)' }}>Or</span>
+          <div className="flex-grow border-t" style={{ borderColor: 'var(--text-secondary)' }}></div>
+        </div>
+
+        {/* Social Login Buttons */}
         <SocialLogin />
-        <p className="text-secondary-text">
-          Don't have an account?{' '}
-          <Link to="/signup" className="text-primary-1 hover:underline">
+
+        {/* Sign Up Link */}
+        <div className="text-center mt-4">
+          <span style={{ color: 'var(--text-secondary)' }}>
+            Don’t have an account?{' '}
+          </span>
+          <Link
+            to="/signup"
+            className="underline"
+            style={{ color: 'var(--primary-pink)' }}
+          >
             Sign up
           </Link>
-        </p>
+        </div>
+
+        {/* Footer */}
+        <Footer />
       </div>
     </div>
   );

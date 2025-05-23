@@ -1,41 +1,75 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Footer from '../Components/Footer';
 
 function ForgotPassword() {
-  const [email, setEmail] = useState('');
-  const navigate = useNavigate();
-
-  const handleResetPassword = (e) => {
-    e.preventDefault();
-    if (email) {
-      alert('Password reset email sent!');
-      navigate('/');
-    } else {
-      alert('Please enter your email.');
-    }
-  };
-
   return (
-    <div className="flex h-screen bg-page-bg">
-      <div className="w-1/2 flex items-center justify-center">
-        <h1 className="text-5xl font-bold text-primary-text">Entrepreneur Journey</h1>
-      </div>
-      <div className="w-1/2 flex flex-col items-center justify-center">
-        <h2 className="text-3xl mb-4 font-bold text-primary-text">Forgot Password?</h2>
-        <div className="flex flex-col space-y-4 w-64 bg-card-fill p-6 rounded-lg">
-          <input
-            type="email"
-            placeholder="Please enter your email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="p-2 rounded border border-gray-600 bg-gray-800 text-primary-text placeholder-secondary-text"
-          />
-          <button
-            onClick={handleResetPassword}
-            className="p-2 bg-gradient-to-r from-primary-1 to-primary-2 rounded text-primary-text"
-          >
-            Reset Password
-          </button>
+    <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: 'var(--page-background)' }}>
+      <div 
+        className="p-6 rounded-lg shadow-lg w-full max-w-sm min-h-[500px] flex flex-col justify-between" 
+        style={{ 
+          backgroundColor: 'var(--card-fill)', 
+          borderRadius: '0.5rem', 
+        }}
+      >
+        <div>
+          {/* Title */}
+          <h3 className="text-center mb-6" style={{ color: 'var(--text-primary)' }}>
+            Forgot Password ?
+          </h3>
+
+          {/* Description */}
+          <p className="text-center mb-4" style={{ color: 'var(--text-secondary)' }}>
+            Please enter you're email
+          </p>
+
+          {/* Form */}
+          <form>
+            {/* Email Field */}
+            <div className="mb-4">
+              <input
+                type="email"
+                placeholder="example@mail.com"
+                className="w-full p-2 rounded border"
+                style={{
+                  borderColor: 'var(--text-secondary)',
+                  backgroundColor: 'var(--page-background)',
+                  color: 'var(--text-primary)',
+                }}
+              />
+            </div>
+
+            {/* Reset Password Button */}
+            <button
+              type="submit"
+              className="w-full p-2 rounded"
+              style={{
+                background: 'linear-gradient(to right, #9D38DF, #F26479)',
+                color: 'var(--text-primary)',
+              }}
+            >
+              Reset Password
+            </button>
+          </form>
+        </div>
+
+        <div>
+          {/* Sign Up Link */}
+          <div className="text-center mt-4">
+            <span style={{ color: 'var(--text-secondary)' }}>
+              Don’t have an account?{' '}
+            </span>
+            <Link
+              to="/signup"
+              className="underline"
+              style={{ color: 'var(--primary-pink)' }}
+            >
+              Sign up
+            </Link>
+          </div>
+
+          {/* Footer */}
+          <Footer />
         </div>
       </div>
     </div>

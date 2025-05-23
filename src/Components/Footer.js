@@ -1,17 +1,19 @@
+import React from 'react';
+
 function Footer() {
-    return (
-      <footer className="bg-gray-800 p-4 text-center absolute bottom-0 w-full">
-        <a href="#" className="mx-2 text-secondary-text hover:text-primary-1">
-          Terms & Conditions
-        </a>
-        <a href="#" className="mx-2 text-secondary-text hover:text-primary-1">
-          Support
-        </a>
-        <a href="#" className="mx-2 text-secondary-text hover:text-primary-1">
-          Customer Care
-        </a>
-      </footer>
-    );
-  }
-  
-  export default Footer;
+  return (
+    <div className="flex justify-between mt-6 text-sm">
+      <a href="/terms" style={{ color: 'var(--text-secondary)' }}>
+        Terms & Conditions
+      </a>
+      <a href="/support" style={{ color: 'var(--text-secondary)' }}>
+        Support
+      </a>
+      <a href="/customer-care" style={{ color: 'var(--text-secondary)' }}>
+        Customer Care
+      </a>
+    </div>
+  );
+}
+
+export default Footer;
