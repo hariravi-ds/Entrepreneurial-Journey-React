@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -119,4 +120,9 @@ h4 {
 h5 {
   font-weight: 700; /* Bold */
   font-size: 16px;
+}
+
+.playfair-heading {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
 }

@@ -1,8 +1,8 @@
-"use client";
-
 import React from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import SocialLogin from "../Components/SocialLogin";
+import Footer from "../Components/Footer";
 
 export default function Signup() {
   const [formErrors, setFormErrors] = useState({});
@@ -76,9 +76,14 @@ export default function Signup() {
   };
 
   return (
-    <div className="min-h-screen bg-[var(--background-black)] text-[var(--text-primary)] flex flex-col justify-center items-center">
+    <div className="min-h-screen bg-[var(--background-black)] text-[var(--text-primary)] flex flex-col items-center p-10">
+      <div className="flex w-full">
+        <h1 className="text-[48px] playfair-heading font-semibold leading-[1.1]">
+          Entrepreneurs <br /> Journey
+        </h1>
+      </div>
       <div
-        className="w-[480px] p-[40px] border border-solid rounded-2xl"
+        className="w-[480px] p-[40px] pt-[80px] border border-solid rounded-2xl"
         style={{
           borderImageSource: `linear-gradient(166.93deg, #AFAFAF 3.24%, rgba(96, 96, 96, 0) 96.43%), linear-gradient(317.92deg, rgba(255, 255, 255, 0.6) 1.48%, rgba(0, 0, 0, 0) 67.95%)`,
           borderImageSlice: 1,
@@ -168,29 +173,7 @@ export default function Signup() {
             <hr className="flex-grow border-t border-gray-600" />
           </div>
 
-          <div className="flex justify-center items-center space-x-6">
-            <button className="cursor-pointer rounded-full hover:scale-110 transition">
-              <img
-                src="/Images/Social/Google.svg"
-                alt="Google"
-                className="w-10 h-10"
-              />
-            </button>
-            <button className="cursor-pointer rounded-full hover:scale-110 transition">
-              <img
-                src="/Images/Social/Facebook.png"
-                alt="Facebook"
-                className="w-10 h-10"
-              />
-            </button>
-            <button className="cursor-pointer rounded-full hover:scale-110 transition">
-              <img
-                src="/Images/Social/Github.svg"
-                alt="Github"
-                className="w-10 h-10"
-              />
-            </button>
-          </div>
+          <SocialLogin />
         </div>
 
         <div className="flex flex-col gap-2 mt-12">
@@ -200,11 +183,7 @@ export default function Signup() {
               Login
             </Link>
           </div>
-          <div className="flex justify-between text-base font-medium">
-            <span className="cursor-pointer">Terms & Conditions</span>
-            <span className="cursor-pointer">Support</span>
-            <span className="cursor-pointer">Customer Care</span>
-          </div>
+          <Footer />
         </div>
       </div>
     </div>

@@ -1,27 +1,27 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import Footer from '../Components/Footer';
+import React from "react";
+import { Link } from "react-router-dom";
+import Footer from "../Components/Footer";
 
 function ForgotPassword() {
   return (
-    <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: 'var(--page-background)' }}>
-      <div 
-        className="p-6 rounded-lg shadow-lg w-full max-w-sm min-h-[500px] flex flex-col justify-between" 
-        style={{ 
-          backgroundColor: 'var(--card-fill)', 
-          borderRadius: '0.5rem', 
+    <div className="min-h-screen bg-[var(--background-black)] text-[var(--text-primary)] flex flex-col items-center p-10">
+      <div className="flex w-full">
+        <h1 className="text-[48px] playfair-heading font-semibold leading-[1.1]">
+          Entrepreneurs <br /> Journey
+        </h1>
+      </div>
+      <div
+        className="w-[480px] h-[720px] p-[40px] pt-[80px] border border-solid rounded-2xl flex flex-col justify-between"
+        style={{
+          borderImageSource: `linear-gradient(166.93deg, #AFAFAF 3.24%, rgba(96, 96, 96, 0) 96.43%), linear-gradient(317.92deg, rgba(255, 255, 255, 0.6) 1.48%, rgba(0, 0, 0, 0) 67.95%)`,
+          borderImageSlice: 1,
         }}
       >
         <div>
-          {/* Title */}
-          <h3 className="text-center mb-6" style={{ color: 'var(--text-primary)' }}>
-            Forgot Password ?
-          </h3>
-
-          {/* Description */}
-          <p className="text-center mb-4" style={{ color: 'var(--text-secondary)' }}>
-            Please enter you're email
-          </p>
+          <div className="mb-2 text-left">
+            <h1 className="font-semibold text-4xl">Forgot Password ?</h1>
+            <h3 className="text-base font-medium">Please enter you're email</h3>
+          </div>
 
           {/* Form */}
           <form>
@@ -29,45 +29,31 @@ function ForgotPassword() {
             <div className="mb-4">
               <input
                 type="email"
+                name="email"
                 placeholder="example@mail.com"
-                className="w-full p-2 rounded border"
-                style={{
-                  borderColor: 'var(--text-secondary)',
-                  backgroundColor: 'var(--page-background)',
-                  color: 'var(--text-primary)',
-                }}
+                className="w-full h-[55px] px-4 py-2 rounded-xl bg-transparent border border-white text-white placeholder-white focus:outline-none"
+                required
               />
             </div>
 
             {/* Reset Password Button */}
             <button
               type="submit"
-              className="w-full p-2 rounded"
-              style={{
-                background: 'linear-gradient(to right, #9D38DF, #F26479)',
-                color: 'var(--text-primary)',
-              }}
+              className="w-full px-6 py-3 text-white font-medium text-semibold rounded-xl bg-gradient-to-r from-[#9D38DF] to-[#F26479] shadow-md hover:from-blue-600 hover:to-blue-950 transition-all duration-300"
             >
               Reset Password
             </button>
           </form>
         </div>
 
-        <div>
+        <div className="flex flex-col gap-2 mt-12">
           {/* Sign Up Link */}
-          <div className="text-center mt-4">
-            <span style={{ color: 'var(--text-secondary)' }}>
-              Don’t have an account?{' '}
-            </span>
-            <Link
-              to="/signup"
-              className="underline"
-              style={{ color: 'var(--primary-pink)' }}
-            >
+          <div className="flex justify-center gap-2 text-base font-medium">
+            <span>Don’t have an account? </span>
+            <Link to="/signup" className="cursor-pointer hover:underline">
               Sign up
             </Link>
           </div>
-
           {/* Footer */}
           <Footer />
         </div>

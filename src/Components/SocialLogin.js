@@ -2,22 +2,29 @@ import React from 'react';
 
 function SocialLogin() {
   return (
-    <div className="flex justify-center gap-4 mb-4">
-      {/* Google Button */}
-      <button className="p-2 rounded-full flex items-center justify-center" >
-        <img src="/images/social/google.png" alt="Google" className="w-6 h-6" />
-      </button>
-
-      {/* Facebook Button */}
-      <button className="p-2 rounded-full flex items-center justify-center" >
-        <img src="/images/social/facebook.png" alt="Facebook" className="w-6 h-6" />
-      </button>
-
-      {/* GitHub Button */}
-      <button className="p-2 rounded-full flex items-center justify-center">
-        <img src="/images/social/github.png" alt="GitHub" className="w-6 h-6" />
-      </button>
-    </div>
+          <div className="flex justify-center items-center space-x-6">
+            <button className="cursor-pointer rounded-full hover:scale-110 transition">
+              <img
+                src="/Images/Social/Google.svg"
+                alt="Google"
+                className="w-10 h-10"
+              />
+            </button>
+            <button className="cursor-pointer rounded-full hover:scale-110 transition">
+              <img
+                src="/Images/Social/Facebook.png"
+                alt="Facebook"
+                className="w-10 h-10"
+              />
+            </button>
+            <button className="cursor-pointer rounded-full hover:scale-110 transition">
+              <img
+                src="/Images/Social/Github.svg"
+                alt="Github"
+                className="w-10 h-10"
+              />
+            </button>
+          </div>
   );
 }
 
