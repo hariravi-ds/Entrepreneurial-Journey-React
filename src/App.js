@@ -6,6 +6,7 @@ import ForgotPassword from './Pages/Forgotpassword'; // Ensure the file is named
 import Dashboard from './Pages/Dashboard';
 import Tasks from './Pages/Tasks'
 import CreateTask from './Pages/createTask';
+import AddUser from './Pages/addUser'
 
 function ProtectedRoute({ children }) {
   const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
@@ -22,6 +23,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/tasks" element={<Tasks />} />
         <Route path="/create-task" element={<CreateTask />} />
+        <Route path="/add-user" element={<AddUser />} />
         {/* <Route
           path="/dashboard"
           element={
