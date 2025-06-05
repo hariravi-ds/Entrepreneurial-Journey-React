@@ -7,6 +7,10 @@ import Dashboard from './Pages/Dashboard';
 import Tasks from './Pages/Tasks'
 import CreateTask from './Pages/createTask';
 import AddUser from './Pages/addUser'
+import Explore from './Pages/Explore';
+import Profile from './Pages/Profile'
+import EntProfile from './Pages/EntProfile'
+import FileUpload from './Pages/FileUpload';
 
 function ProtectedRoute({ children }) {
   const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
@@ -24,6 +28,10 @@ function App() {
         <Route path="/tasks" element={<Tasks />} />
         <Route path="/create-task" element={<CreateTask />} />
         <Route path="/add-user" element={<AddUser />} />
+        <Route path="/explore" element={<Explore />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/ent-profile" element={<EntProfile />} />
+        <Route path="/fileUpload" element={<FileUpload />} />
         {/* <Route
           path="/dashboard"
           element={
