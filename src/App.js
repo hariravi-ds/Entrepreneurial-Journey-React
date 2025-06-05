@@ -11,6 +11,8 @@ import Explore from './Pages/Explore';
 import Profile from './Pages/Profile'
 import EntProfile from './Pages/EntProfile'
 import FileUpload from './Pages/FileUpload';
+import ProjectOverview from './Pages/ProjectOverview'
+import CalendarView from './Pages/CalendarView';
 
 function ProtectedRoute({ children }) {
   const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
@@ -32,6 +34,8 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/ent-profile" element={<EntProfile />} />
         <Route path="/fileUpload" element={<FileUpload />} />
+        <Route path="/project_overview" element={<ProjectOverview />} />
+        <Route path="/calendar" element={<CalendarView />} />
         {/* <Route
           path="/dashboard"
           element={
