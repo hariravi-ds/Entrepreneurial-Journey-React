@@ -1,4 +1,3 @@
-// CalendarView.jsx
 import React, { useState } from "react";
 
 const CalendarView = () => {
